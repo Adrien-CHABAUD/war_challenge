@@ -29,13 +29,7 @@ struct ContentView: View {
                 Spacer()
                 Image("logo")
                 Spacer()
-                HStack {
-                    Spacer()
-                    Image(playerCard)
-                    Spacer()
-                    Image(cpuCard)
-                    Spacer()
-                }
+                CardsView(playerCard: playerCard, cpuCard: cpuCard)
                 Spacer()
                 
                 // Deal Button
@@ -65,29 +59,8 @@ struct ContentView: View {
                 Spacer()
                 
                 // Score Display
-                HStack {
-                    Spacer()
-                    VStack {
-                        Text("Player")
-                            .font(.headline)
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 10.0)
-                        Text(String(playerScore))
-                            .font(.largeTitle)
-                            .foregroundColor(Color.white)
-                    }
-                    Spacer()
-                    VStack {
-                        Text("CPU")
-                            .font(.headline)
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 10.0)
-                        Text(String(cpuScore))
-                            .font(.largeTitle)
-                            .foregroundColor(Color.white)
-                    }
-                    Spacer()
-                }
+                ScoreDisplayView(playerScore: playerScore, cpuScore: cpuScore)
+                
                 Spacer()
             }
         }
@@ -99,5 +72,52 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+
+struct CardsView: View {
+    var playerCard: String
+    var cpuCard: String
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            Image(playerCard)
+            Spacer()
+            Image(cpuCard)
+            Spacer()
+        }
+    }
+}
+
+struct ScoreDisplayView: View {
+    var playerScore: Int
+    var cpuScore: Int
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            VStack {
+                Text("Player")
+                    .font(.headline)
+                    .foregroundColor(Color.white)
+                    .padding(.bottom, 10.0)
+                Text(String(playerScore))
+                    .font(.largeTitle)
+                    .foregroundColor(Color.white)
+            }
+            Spacer()
+            VStack {
+                Text("CPU")
+                    .font(.headline)
+                    .foregroundColor(Color.white)
+                    .padding(.bottom, 10.0)
+                Text(String(cpuScore))
+                    .font(.largeTitle)
+                    .foregroundColor(Color.white)
+            }
+            Spacer()
+        }
     }
 }

@@ -1,3 +1,5 @@
+<img src = "images/Adrien_banner_01.png">
+
 iOS App made using SwiftUI.
 
 War Challenge is a card fight game where cards are selected randomly and the aim is to get the biggest score, there is no ending.
